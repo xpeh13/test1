@@ -1,0 +1,104 @@
+               new_user_session GET    /users/sign_in(.:format)                                                  users/sessions#new
+                   user_session POST   /users/sign_in(.:format)                                                  users/sessions#create
+           destroy_user_session GET    /users/sign_out(.:format)                                                 users/sessions#destroy
+                  user_password POST   /users/password(.:format)                                                 devise/passwords#create
+              new_user_password GET    /users/password/new(.:format)                                             devise/passwords#new
+             edit_user_password GET    /users/password/edit(.:format)                                            devise/passwords#edit
+                                PATCH  /users/password(.:format)                                                 devise/passwords#update
+                                PUT    /users/password(.:format)                                                 devise/passwords#update
+       cancel_user_registration GET    /users/cancel(.:format)                                                   users/registrations#cancel
+              user_registration POST   /users(.:format)                                                          users/registrations#create
+          new_user_registration GET    /users/sign_up(.:format)                                                  users/registrations#new
+         edit_user_registration GET    /users/edit(.:format)                                                     users/registrations#edit
+                                PATCH  /users(.:format)                                                          users/registrations#update
+                                PUT    /users(.:format)                                                          users/registrations#update
+                                DELETE /users(.:format)                                                          users/registrations#destroy
+                       callback POST   /callback(.:format)                                                       home#callback
+                  change_region GET    /change_region/:id(.:format)                                              home#change_region
+              home_cooking_week GET    /home_cooking/week(/cat/:taxon_url)(/:year/:week(/:ingredient))(.:format) home_cooking#week
+              home_cooking_show GET    /home_cooking/course/:product_url(.:format)                               home_cooking#show
+                   home_cooking GET    /home_cooking(/:main_taxon_url(/:taxon_url))(.:format)                    home_cooking#index
+                                POST   /home_cooking(/:main_taxon_url(/:taxon_url))(.:format)                    home_cooking#index
+                           cart GET    /order/cart(.:format)                                                     order#cart
+                 populate_order POST   /order/populate_order(.:format)                                           order#populate
+               delete_line_item DELETE /order/line_item/:line_item_id(.:format)                                  order#delete_line_item
+                   update_order POST   /order/cart(.:format)                                                     order#update_order
+                       checkout GET    /order/checkout(.:format)                                                 order#checkout
+                 complete_order POST   /order/complete(.:format)                                                 order#complete_order
+                    order_thanx GET    /order/thanx(.:format)                                                    order#thanx
+                            pay GET    /order/pay(.:format)                                                      order#pay
+                      order_pay POST   /order/pay(.:format)                                                      order#pay
+                        product GET    /product/:permalink(.:format)                                             product#show
+                          taxon GET    /*permalink(.:format)                                                     taxon#show
+                          about GET    /page/about(.:format)                                                     page#about
+                       contacts GET    /page/contacts(.:format)                                                  page#contacts
+                       delivery GET    /page/delivery(.:format)                                                  page#delivery
+                          promo GET    /page/promo(.:format)                                                     page#promo
+                      vacancies GET    /page/vacancies(.:format)                                                 page#vacancies
+                          short GET    /l/:slug(.:format)                                                        short_links#show
+              new_admin_session GET    /admins/sign_in(.:format)                                                 devise/sessions#new
+                  admin_session POST   /admins/sign_in(.:format)                                                 devise/sessions#create
+          destroy_admin_session GET    /admins/sign_out(.:format)                                                devise/sessions#destroy
+                   admin_orders GET    /admin/orders(.:format)                                                   admin/orders#index
+                    admin_order GET    /admin/orders/:id(.:format)                                               admin/orders#show
+           admin_dashboard_show GET    /admin/dashboard/show(.:format)                                           admin/dashboard#show
+    admin_home_cooking_products GET    /admin/home_cooking_products(.:format)                                    admin/home_cooking_products#index
+                                POST   /admin/home_cooking_products(.:format)                                    admin/home_cooking_products#create
+ new_admin_home_cooking_product GET    /admin/home_cooking_products/new(.:format)                                admin/home_cooking_products#new
+edit_admin_home_cooking_product GET    /admin/home_cooking_products/:id/edit(.:format)                           admin/home_cooking_products#edit
+     admin_home_cooking_product GET    /admin/home_cooking_products/:id(.:format)                                admin/home_cooking_products#show
+                                PATCH  /admin/home_cooking_products/:id(.:format)                                admin/home_cooking_products#update
+                                PUT    /admin/home_cooking_products/:id(.:format)                                admin/home_cooking_products#update
+                                DELETE /admin/home_cooking_products/:id(.:format)                                admin/home_cooking_products#destroy
+                   admin_taxons GET    /admin/taxons(.:format)                                                   admin/taxons#index
+                                POST   /admin/taxons(.:format)                                                   admin/taxons#create
+                new_admin_taxon GET    /admin/taxons/new(.:format)                                               admin/taxons#new
+               edit_admin_taxon GET    /admin/taxons/:id/edit(.:format)                                          admin/taxons#edit
+                    admin_taxon GET    /admin/taxons/:id(.:format)                                               admin/taxons#show
+                                PATCH  /admin/taxons/:id(.:format)                                               admin/taxons#update
+                                PUT    /admin/taxons/:id(.:format)                                               admin/taxons#update
+                                DELETE /admin/taxons/:id(.:format)                                               admin/taxons#destroy
+                 admin_products GET    /admin/products(.:format)                                                 admin/products#index
+                                POST   /admin/products(.:format)                                                 admin/products#create
+              new_admin_product GET    /admin/products/new(.:format)                                             admin/products#new
+             edit_admin_product GET    /admin/products/:id/edit(.:format)                                        admin/products#edit
+                  admin_product GET    /admin/products/:id(.:format)                                             admin/products#show
+                                PATCH  /admin/products/:id(.:format)                                             admin/products#update
+                                PUT    /admin/products/:id(.:format)                                             admin/products#update
+                                DELETE /admin/products/:id(.:format)                                             admin/products#destroy
+                  admin_banners GET    /admin/banners(.:format)                                                  admin/banners#index
+                                POST   /admin/banners(.:format)                                                  admin/banners#create
+               new_admin_banner GET    /admin/banners/new(.:format)                                              admin/banners#new
+              edit_admin_banner GET    /admin/banners/:id/edit(.:format)                                         admin/banners#edit
+                   admin_banner GET    /admin/banners/:id(.:format)                                              admin/banners#show
+                                PATCH  /admin/banners/:id(.:format)                                              admin/banners#update
+                                PUT    /admin/banners/:id(.:format)                                              admin/banners#update
+                                DELETE /admin/banners/:id(.:format)                                              admin/banners#destroy
+                   admin_stores GET    /admin/stores(.:format)                                                   admin/stores#index
+                                POST   /admin/stores(.:format)                                                   admin/stores#create
+                new_admin_store GET    /admin/stores/new(.:format)                                               admin/stores#new
+               edit_admin_store GET    /admin/stores/:id/edit(.:format)                                          admin/stores#edit
+                    admin_store GET    /admin/stores/:id(.:format)                                               admin/stores#show
+                                PATCH  /admin/stores/:id(.:format)                                               admin/stores#update
+                                PUT    /admin/stores/:id(.:format)                                               admin/stores#update
+                                DELETE /admin/stores/:id(.:format)                                               admin/stores#destroy
+             move_admin_vacancy POST   /admin/vacancies/:id/move(.:format)                                       admin/vacancies#move
+                admin_vacancies GET    /admin/vacancies(.:format)                                                admin/vacancies#index
+                                POST   /admin/vacancies(.:format)                                                admin/vacancies#create
+              new_admin_vacancy GET    /admin/vacancies/new(.:format)                                            admin/vacancies#new
+             edit_admin_vacancy GET    /admin/vacancies/:id/edit(.:format)                                       admin/vacancies#edit
+                  admin_vacancy GET    /admin/vacancies/:id(.:format)                                            admin/vacancies#show
+                                PATCH  /admin/vacancies/:id(.:format)                                            admin/vacancies#update
+                                PUT    /admin/vacancies/:id(.:format)                                            admin/vacancies#update
+                                DELETE /admin/vacancies/:id(.:format)                                            admin/vacancies#destroy
+              admin_short_links GET    /admin/short_links(.:format)                                              admin/short_links#index
+                                POST   /admin/short_links(.:format)                                              admin/short_links#create
+           new_admin_short_link GET    /admin/short_links/new(.:format)                                          admin/short_links#new
+          edit_admin_short_link GET    /admin/short_links/:id/edit(.:format)                                     admin/short_links#edit
+               admin_short_link GET    /admin/short_links/:id(.:format)                                          admin/short_links#show
+                                PATCH  /admin/short_links/:id(.:format)                                          admin/short_links#update
+                                PUT    /admin/short_links/:id(.:format)                                          admin/short_links#update
+                                DELETE /admin/short_links/:id(.:format)                                          admin/short_links#destroy
+                     admin_root GET    /admin(.:format)                                                          admin/dashboard#show
+                     feedme_api        /                                                                         Feedme::API
+                           root GET    /
